@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Roppongi';
+    src: url('./fonts/Roppongi Thin.ttf') format('embedded-opentype'), /* Internet Explorer */
+         url('./fonts/Roppongi Thin.ttf') format('woff2'),             /* Super Modern Browsers */
+         url('./fonts/Roppongi Thin.ttf') format('woff'),              /* Pretty Modern Browsers */
+         url('./fonts/Roppongi Thin.ttf') format('truetype'),          /* Safari, Android, iOS */
+         url('./fonts/Roppongi Thin.ttf') format('svg');               /* Legacy iOS */
+}
+
+.editor {
+    float: left;
+    width: 50%;
+    overflow: auto;
+}

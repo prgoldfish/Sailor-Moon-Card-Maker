@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<meta charset="UTF-8">
+<title>Sailor Moon Card Maker</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="./index.css">
+<style>
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<script src="js/Misc.js"></script>
+<script src="js/Cards.js"></script>
+<script src="js/Main.js"></script>
+<body>
+<div class="inputs editor">
+ <h1>Créateur de cartes Sailor Moon CCG</h1>
+ <input type="color" id="colorPickBorder" value="rgb(127,127,127)"/>
+ <input type="color" id="colorPickBackground" value="rgb(127,127,127)"/>
+ <input type="text" id="inputBasicRule"/>
+ <input type="file" accept="image/*" name="image" id="inputImg" style="display: none;"/>
+ <button style="cursor: pointer;" onclick="triggerUploadBox()">Upload Image</button>
+</div>
+<div class="cardPreview editor">
+    <canvas id="cardRender"></canvas>
+</div>
+<img src="images/Copyright.png" hidden="true" id="copyrightImg"/>
+<img hidden="true" id="uploadedCardImg" src="images/Blank.png"/>
+
+</body>
+</html> 
