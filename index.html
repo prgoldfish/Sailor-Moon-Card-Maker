@@ -1,30 +1,110 @@
 <!DOCTYPE html>
 <html lang="fr">
-<meta charset="UTF-8">
-<title>Sailor Moon Card Maker</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="./index.css">
-<style>
-</style>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-<script src="js/Misc.js"></script>
-<script src="js/Cards.js"></script>
-<script src="js/Main.js"></script>
-<body>
-<div class="inputs editor">
- <h1>Créateur de cartes Sailor Moon CCG</h1>
- <input type="color" id="colorPickBorder" value="rgb(127,127,127)"/>
- <input type="color" id="colorPickBackground" value="rgb(127,127,127)"/>
- <input type="text" id="inputBasicRule"/>
- <input type="file" accept="image/*" name="image" id="inputImg" style="display: none;"/>
- <button style="cursor: pointer;" onclick="triggerUploadBox()">Upload Image</button>
-</div>
-<div class="cardPreview editor">
-    <canvas id="cardRender"></canvas>
-</div>
-<img src="images/Copyright.png" hidden="true" id="copyrightImg"/>
-<img hidden="true" id="uploadedCardImg" src="images/Blank.png"/>
+    <meta charset="UTF-8">
+    <title>Sailor Moon Card Maker</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="./index.css">
+    <style>
+        
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="js/Misc.js"></script>
+    <script src="js/Cards.js"></script>
+    <script src="js/Main.js"></script>
+    <body>
+        <div class="inputs editor">
+            <h1>Créateur de cartes Sailor Moon CCG</h1>
+            <div id="divColorPickBorder">
+                <label for="colorPickBorder">Couleur de bordure</label>
+                <input type="color" id="colorPickBorder" value="rgb(127,127,127)"/>
+            </div>
+            <div id="divColorPickBackground">
+                <label for="colorPickBackground">Couleur de fond</label>
+                <input type="color" id="colorPickBackground" value="rgb(127,127,127)"/>
+            </div>
+            <div id="divInputTitre">
+                <label for="inputTitre">Nom de la carte</label>
+                <input type="text" id="inputTitre"/>
+            </div>
+            <div id="divDropdownType">
+                <label for="dropdownType">Type de Carte</label>
+                <select id="dropdownType" name="cardType">
+                    <optgroup label="PIE">
+                        <option value="Person">Person</option>
+                        <option value="Item">Item</option>
+                        <option value="Event">Event</option>
+                        <option value="Location">Location</option>
+                    </optgroup>
+                    <optgroup label="Attack/Defense">
+                        <option value="Monster">Monster</option>
+                        <option value="Villain">Villain</option>
+                        <option value="Sailor">Sailor/Knight</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div id="divInputDetailledType">
+                <label for="inputDetailledType">TODO (JS & Attack): Type Détaillé</label>
+                <input type="text" id="inputDetailledType" value="Sailor Scout - Level 1"/>
+            </div>
+            <div id="divInputHP">
+                <label for="inputHP">TODO (JS & Attack): Nombre de PV</label>
+                <input type="number" min="0" step="10" id="inputHP" value="50"/>
+            </div> 
+            <div id="divDropdownPowerType">
+                <label for="dropdownPowerType">TODO (JS & Sailor): Type d'énergie</label>
+                <select id="dropdownPowerType" name="powerType">
+                    <option value="Body">Body</option>
+                    <option value="Mind">Mind</option>
+                    <option value="Soul">Soul</option>
+                </select>
+            </div>            
+            <div id="divInputImg">
+                <label for="inputImg">Image de la carte : </label>
+                <input type="file" accept="image/*" name="image" id="inputImg" style="display: none;"/>
+                <button style="cursor: pointer;" onclick="triggerUploadBox()">Upload une image</button>
+            </div>
+            <div id="divInputEffectTitre">
+                <div>
+                    <label for="inputEffectTitre">Titre de l'effet</label>
+                    <input type="text" id="inputEffectTitre"/>
+                </div>
+                <div>
+                    <label>TODO (JS): Coût :</label>
+                    <button>-</button> JKP <button>+</button>
+                    <button>-</button> Body <button>+</button>
+                    <button>-</button> Mind <button>+</button>
+                    <button>-</button> Soul <button>+</button>
+                </div>
+            </div>
+            <div id="divInputEffect">
+                <label for="inputEffect">TODO (Fix JS \n): Effet</label>
+                <textarea type="text" id="inputEffect"></textarea>
+            </div>
+            <div id="divInputQuote">
+                <label for="inputQuote">Citation</label>
+                <input type="text" id="inputQuote"/>
+            </div>
+            <div id="divInputQuoteContext">
+                <label for="inputQuoteContext">Contexte de la citation</label>
+                <input type="text" id="inputQuoteContext"/>
+            </div>
+            <div id="divInputBasicRule">
+                <label for="inputBasicRule">Règle basique</label>
+                <input type="text" id="inputBasicRule"/>
+            </div>
+            <div id="divInputExtNumber">
+                <label for="inputExtNumber">Numéro d'extension</label>
+                <input type="number" min="1" max="10000" id="inputExtNumber" value="1"/>
+                /
+                <input type="number" min="1" max="10000" id="inputMaxExtNumber" value="1"/>
+            </div>
+        </div>
+        <div class="cardPreview editor">
+            <canvas id="cardRender"></canvas>
+        </div>
+        <img src="images/Copyright.png" hidden="true" id="copyrightImg"/>
+        <img hidden="true" id="uploadedCardImg" src="images/PlutoImage.jpg"/>
 
-</body>
+    </body>
 </html> 

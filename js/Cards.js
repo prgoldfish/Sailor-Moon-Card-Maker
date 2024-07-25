@@ -57,12 +57,12 @@ class CardImg {
 
 
 class BaseCard {
-    constructor(borderColor, bgColor, basicRule, img, desc, extNumber, maxExtNumber, copyright) {
+    constructor(borderColor, bgColor, basicRule, img, quote, extNumber, maxExtNumber, copyright) {
         this.borderColor = borderColor;
         this.bgColor = bgColor;
         this.basicRule = basicRule;
         this.img = img;
-        this.desc = desc;
+        this.quote = quote;
         this.extNumber = extNumber;
         this.maxExtNumber = maxExtNumber;
         this.copyright = copyright;
@@ -77,7 +77,7 @@ class BaseCard {
         if(typeof this.basicRule === "string" && this.basicRule.length > 0 ) {
             this.renderBasicRule();
         }
-        this.desc.renderDescription();
+        this.quote.renderQuote();
         this.img.renderImg();
     }
 
@@ -102,8 +102,8 @@ class BaseCard {
 }
 
 class PIECard extends BaseCard {
-    constructor(borderColor, bgColor, basicRule, img, desc, extNumber, maxExtNumber, copyright, name, type, effect) {
-        super(borderColor, bgColor, basicRule, img, desc, extNumber, maxExtNumber, copyright);
+    constructor(borderColor, bgColor, basicRule, img, quote, extNumber, maxExtNumber, copyright, name, type, effect) {
+        super(borderColor, bgColor, basicRule, img, quote, extNumber, maxExtNumber, copyright);
         this.name = name;
         this.type = type;
         this.effect = effect;

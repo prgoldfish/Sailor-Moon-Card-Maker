@@ -6,9 +6,17 @@
          url('./fonts/Roppongi Thin.ttf') format('truetype'),          /* Safari, Android, iOS */
          url('./fonts/Roppongi Thin.ttf') format('svg');               /* Legacy iOS */
 }
-
-.editor {
+body {
+    overflow-y: clip;
+}
+.inputs {
     float: left;
     width: 50%;
-    overflow: auto;
+}
+
+.cardPreview {
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow-y: scroll;
 }

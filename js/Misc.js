@@ -169,7 +169,7 @@ class PIEEffect {
     }
 }
 
-class renderDescription {
+class renderQuote {
 
     constructor(text, isCitation, citInfo, color) {
         this.text = text;
@@ -178,7 +178,7 @@ class renderDescription {
         this.color = color;
     }
 
-    renderDescription() {
+    renderQuote() {
         let lineWidth = 4, x = 25 + (lineWidth / 2), y = 830 + (lineWidth / 2), height = 73 - (lineWidth / 2), maxTextWidth = CARDLENGTH - (2 * x) - lineWidth, lineHeight = 40;
 
         renderLinearGradient(renderCtx, this.color.toSaturation(30), 70, 100, 70, new Line(x, y, CARDLENGTH - x, y), new Line(x, y, CARDLENGTH - 2 * x, height));
@@ -195,9 +195,14 @@ class renderDescription {
         let spaceLength = renderCtx.measureText(" ").width;
         let remainingText = renderTextLines(renderCtx, this.text, 1, maxTextWidth, lineHeight, CARDLENGTH / 2, y + 10).join(" ");
         let remLength = renderCtx.measureText(remainingText).width, citLength = renderCtx.measureText(this.citInfo).width;
-        renderCtx.fillText(remainingText, CARDLENGTH / 2 - (citLength + spaceLength) / 2, y + lineHeight);
-        renderCtx.font = "20px arial";
-        renderCtx.fillText(this.citInfo, CARDLENGTH / 2 + (remLength + spaceLength) / 2, y + lineHeight);
+        if(this.isCitation) {
+            renderCtx.fillText(remainingText, CARDLENGTH / 2 - (citLength + spaceLength) / 2, y + lineHeight);
+            renderCtx.font = "20px arial";
+            renderCtx.fillText(this.citInfo, CARDLENGTH / 2 + (remLength + spaceLength) / 2, y + lineHeight);
+        }
+        else {
+            renderCtx.fillText(remainingText, CARDLENGTH / 2, y + lineHeight);
+        }
 
     }
 }
